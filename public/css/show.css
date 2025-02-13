@@ -1,0 +1,156 @@
+/* ===============================
+   VARIABLES & RÉINITIALISATION
+   =============================== */
+   :root {
+    --primary: #2563eb;
+    --secondary: #1d4ed8;
+    --text: #333;
+    --background: #f4f7fa;
+    --card-bg: #fff;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transition: all 0.3s ease;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.6;
+  }
+
+  /* ===============================
+     CONTENEUR DE LA PAGE
+     =============================== */
+  .item-details {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 15px;
+  }
+
+  /* ===============================
+     STYLE DE LA CARTE
+     =============================== */
+  .card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+  }
+
+  .card.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+  }
+
+  /* IMAGE */
+  .card-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  /* CONTENU */
+  .card-content {
+    padding: 20px;
+  }
+
+  .card-content h1 {
+    font-size: 2rem;
+    margin-bottom: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary);
+  }
+
+  .card-content .description {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .details-list {
+    list-style: none;
+    margin-bottom: 20px;
+  }
+
+  .details-list li {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+  }
+
+  /* BOUTON */
+  .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    font-weight: 600;
+  }
+
+  .btn-primary {
+    background-color: var(--primary);
+    color: #fff;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--secondary);
+  }
+
+  /* ===============================
+     EXEMPLE DE NAV BAR (gérée dans le layout global)
+     =============================== */
+  /* Vous pouvez définir dans votre layout une barre de navigation comme suit :
+  .navbar {
+    background: #fff;
+    border-bottom: 1px solid #e5e7eb;
+    padding: 15px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .navbar a.logo {
+    font-size: 1.5rem;
+    font-family: 'Poppins', sans-serif;
+    color: var(--primary);
+    text-decoration: none;
+  }
+  .navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 15px;
+  }
+  .navbar ul li a {
+    text-decoration: none;
+    color: var(--text);
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  .navbar ul li a:hover {
+    color: var(--primary);
+  }
+  */
+
+  /* ===============================
+     RESPONSIVITÉ
+     =============================== */
+  @media (max-width: 768px) {
+    .card-content h1 {
+      font-size: 1.8rem;
+    }
+    .card-content .description {
+      font-size: 0.95rem;
+    }
+  }

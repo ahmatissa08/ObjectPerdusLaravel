@@ -1,0 +1,86 @@
+/* register.css */
+
+/* Conteneur principal */
+.register-container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 25px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* En-tête */
+.register-header {
+    background: #28a745;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 22px;
+    font-weight: bold;
+    border-radius: 8px 8px 0 0;
+}
+
+/* Formulaire */
+.register-form {
+    padding: 20px;
+}
+
+/* Champs du formulaire */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-control {
+    width: 100%;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    font-size: 14px;
+    transition: border 0.3s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 5px rgba(40, 167, 69, 0.3);
+}
+
+/* Bouton d'inscription */
+.btn-register {
+    background: #28a745;
+    color: white;
+    border: none;
+    padding: 12px;
+    width: 100%;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    transition: background 0.3s ease-in-out;
+}
+
+.btn-register:hover {
+    background: #218838;
+}
+
+/* Pied de formulaire */
+.register-footer {
+    text-align: center;
+    margin-top: 15px;
+}
+
+.register-footer a {
+    color: #28a745;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.register-footer a:hover {
+    text-decoration: underline;
+}

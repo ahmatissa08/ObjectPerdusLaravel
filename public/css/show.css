@@ -1,156 +1,208 @@
-/* ===============================
-   VARIABLES & RÉINITIALISATION
-   =============================== */
-   :root {
-    --primary: #2563eb;
-    --secondary: #1d4ed8;
-    --text: #333;
-    --background: #f4f7fa;
-    --card-bg: #fff;
-    --shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    --transition: all 0.3s ease;
+:root {
+    --primary: #3b82f6;
+    --primary-hover: #2563eb;
+    --success: #10b981;
+    --error: #ef4444;
+    --surface: #ffffff;
+    --text-primary: #1e293b;
+    --text-secondary: #64748b;
+    --radius-xl: 1.5rem;
+    --radius-md: 0.75rem;
+    --shadow-lg: 0 12px 32px -8px rgba(0, 0, 0, 0.15);
+    --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-
-  body {
-    font-family: 'Inter', sans-serif;
-    background-color: var(--background);
-    color: var(--text);
-    line-height: 1.6;
-  }
-
-  /* ===============================
-     CONTENEUR DE LA PAGE
-     =============================== */
   .item-details {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 2rem auto;
-    padding: 0 15px;
+    padding: 0 1rem;
   }
 
-  /* ===============================
-     STYLE DE LA CARTE
-     =============================== */
-  .card {
-    background: var(--card-bg);
-    border-radius: 8px;
+  .detail-card {
+    background: var(--surface);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-lg);
     overflow: hidden;
-    box-shadow: var(--shadow);
-    opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    display: grid;
+    grid-template-columns: 1fr;
   }
 
-  .card.visible {
-    opacity: 1;
-    transform: translateY(0);
+  .media-container {
+    position: relative;
+    overflow: hidden;
+    min-height: 400px;
   }
 
-  .card:hover {
-    transform: translateY(-5px);
-  }
-
-  /* IMAGE */
-  .card-image img {
+  .item-media {
     width: 100%;
-    height: auto;
-    display: block;
+    height: 100%;
+    object-fit: cover;
+    transition: var(--transition);
   }
 
-  /* CONTENU */
-  .card-content {
-    padding: 20px;
+  .media-container:hover .item-media {
+    transform: scale(1.03);
   }
 
-  .card-content h1 {
-    font-size: 2rem;
-    margin-bottom: 15px;
-    font-family: 'Poppins', sans-serif;
-    color: var(--primary);
-  }
-
-  .card-content .description {
-    font-size: 1rem;
-    line-height: 1.5;
-    margin-bottom: 20px;
-  }
-
-  .details-list {
-    list-style: none;
-    margin-bottom: 20px;
-  }
-
-  .details-list li {
-    margin-bottom: 8px;
-    font-size: 0.95rem;
-  }
-
-  /* BOUTON */
-  .btn {
-    display: inline-block;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
+  .status-badge {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    padding: 0.5rem 1.25rem;
+    border-radius: var(--radius-md);
     font-weight: 600;
+    z-index: 1;
+    backdrop-filter: blur(8px);
+    border: 1px solid rgba(255,255,255,0.2);
   }
 
-  .btn-primary {
-    background-color: var(--primary);
-    color: #fff;
+  .status-badge.lost {
+    background: rgba(220, 38, 38, 0.9);
+    color: white;
   }
 
-  .btn-primary:hover {
-    background-color: var(--secondary);
+  .status-badge.found {
+    background: rgba(16, 185, 129, 0.9);
+    color: white;
   }
 
-  /* ===============================
-     EXEMPLE DE NAV BAR (gérée dans le layout global)
-     =============================== */
-  /* Vous pouvez définir dans votre layout une barre de navigation comme suit :
-  .navbar {
-    background: #fff;
-    border-bottom: 1px solid #e5e7eb;
-    padding: 15px 20px;
+  .detail-content {
+    padding: 2.5rem;
+  }
+
+  .content-header {
+    margin-bottom: 2rem;
+    border-bottom: 1px solid #e2e8f0;
+    padding-bottom: 1.5rem;
+  }
+
+  .item-title {
+    font-size: 2.25rem;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .meta-info {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+  }
+
+  .category-tag {
+    background: var(--primary);
+    color: white;
+    padding: 0.375rem 1rem;
+    border-radius: var(--radius-md);
+    font-size: 0.875rem;
+  }
+
+  .event-date {
+    color: var(--text-secondary);
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 0.5rem;
   }
-  .navbar a.logo {
-    font-size: 1.5rem;
-    font-family: 'Poppins', sans-serif;
-    color: var(--primary);
-    text-decoration: none;
-  }
-  .navbar ul {
-    list-style: none;
-    display: flex;
-    gap: 15px;
-  }
-  .navbar ul li a {
-    text-decoration: none;
-    color: var(--text);
-    font-weight: 500;
-    transition: color 0.3s ease;
-  }
-  .navbar ul li a:hover {
-    color: var(--primary);
-  }
-  */
 
-  /* ===============================
-     RESPONSIVITÉ
-     =============================== */
-  @media (max-width: 768px) {
-    .card-content h1 {
-      font-size: 1.8rem;
+  .item-description {
+    font-size: 1.125rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+    margin-bottom: 2.5rem;
+  }
+
+  .detail-grid {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .detail-item {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+  }
+
+  .detail-item:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-lg);
+  }
+
+  .detail-item i {
+    font-size: 1.5rem;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--primary);
+    color: white;
+  }
+
+  .card-footer {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    border-top: 1px solid #e2e8f0;
+    padding-top: 2rem;
+  }
+
+  .btn-back {
+    background: #f1f5f9;
+    color: var(--text-primary);
+    padding: 0.875rem 1.5rem;
+    border-radius: var(--radius-md);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: var(--transition);
+  }
+
+  .btn-back:hover {
+    background: #e2e8f0;
+  }
+
+  .btn-contact {
+    background: var(--primary);
+    color: white;
+    padding: 0.875rem 2rem;
+    border-radius: var(--radius-md);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: var(--transition);
+  }
+
+  .btn-contact:hover {
+    background: var(--primary-hover);
+    transform: translateY(-2px);
+  }
+
+  @media (min-width: 768px) {
+    .detail-card {
+      grid-template-columns: 1fr 1fr;
     }
-    .card-content .description {
-      font-size: 0.95rem;
+
+    .detail-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 480px) {
+    .detail-content {
+      padding: 1.5rem;
+    }
+
+    .item-title {
+      font-size: 1.75rem;
+    }
+
+    .meta-info {
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
